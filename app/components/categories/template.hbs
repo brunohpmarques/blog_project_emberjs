@@ -1,0 +1,12 @@
+<div class="row mb-3">
+    <div class="col-8">
+        <h1>Categories</h1>
+    </div>
+    <div class="col-4 text-right">
+        <button type="button" class="btn btn-primary">➕ New Category</button>
+    </div>
+</div>
+
+{{#each categories as |category|}}
+    {{category-item category=category}}
+{{/each}}
