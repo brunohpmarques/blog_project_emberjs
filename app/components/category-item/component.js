@@ -16,6 +16,9 @@ export default Ember.Component.extend({
     actions: {
         toggleEdit() {
             this.toggleProperty('isEdit');
+        },
+        remove() {
+            console.log('remove category', this.category);
         }
     }
 
