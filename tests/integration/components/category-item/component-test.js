@@ -6,21 +6,14 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | category-item', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('it renders category', async function(assert) {
+    this.set('category', {
+      id: 1,
+      name: 'Category A'
+    });
 
-    await render(hbs`<CategoryItem />`);
+    await render(hbs`{{category-item category=category}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <CategoryItem>
-        template block text
-      </CategoryItem>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.ok(this.element.textContent.indexOf('Category A') > -1);
   });
 });

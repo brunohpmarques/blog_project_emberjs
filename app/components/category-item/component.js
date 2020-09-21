@@ -4,22 +4,41 @@ export default Ember.Component.extend({
 
     category: null,
     isEdit: false,
-    toString: Ember.computed('category', function() {
+    isInvalid: Ember.computed('category.name', function() {
         const category = this.get('category');
-        return category ? `#${category.id} ${category.name}` : '';
+        return !(category && category.name);
     }),
     observer: Ember.observer('isEdit', function() {
         const isEdit = this.get('isEdit');
         const category = this.get('category');
         console.log('edit category', isEdit, category);
     }),
-    actions: {
-        toggleEdit() {
+    toggleEdit() {
+        if(!this.isInvalid){
             this.toggleProperty('isEdit');
-        },
-        remove() {
-            console.log('remove category', this.category);
         }
+    },
+    update(category) {
+        if(!this.isInvalid){
+            console.log('update category', category);
+            this.toggleProperty('isEdit');
+        }
+    },
+    remove(category) {
+        console.log('remove category', category);
+    },
+
+    init() {
+        this._super();
+        console.log('init');
+    },
+    didInsertElement() {
+        this._super();
+        console.log('didInsertElement');
+    },
+    willDestroyElement() {
+        this._super();
+        console.log('willDestroyElement');
     }
 
 });
