@@ -2,19 +2,25 @@
   <a class="navbar-brand">Blog Project</a>
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Articles <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <LinkTo @route="articles">
+          <a class="nav-link" href="#">Articles</a>
+        </LinkTo>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Categories</a>
+        <LinkTo @route="categories">
+          <a class="nav-link" href="#">Categories</a>
+        </LinkTo>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Authors</a>
+        <LinkTo @route="authors">
+          <a class="nav-link" href="#">Authors</a>
+        </LinkTo>
       </li>
     </ul>
     <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search articles" aria-label="Search">
+      <button class="btn btn-light my-2 my-sm-0" type="submit">🔍</button>
     </form>
   </div>
 </nav>

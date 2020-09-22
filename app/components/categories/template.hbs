@@ -3,7 +3,9 @@
         <h1>Categories</h1>
     </div>
     <div class="col-4 text-right">
-        <button type="button" class="btn btn-primary">➕ New Category</button>
+        <LinkTo @route="categories.new">
+            <button type="button" class="btn btn-primary">➕ New Category</button>
+        </LinkTo>
     </div>
 </div>
 

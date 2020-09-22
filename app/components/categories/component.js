@@ -1,11 +1,19 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    categoryService: Ember.inject.service(),
+    categories: [],
 
-    categories: [
-        {id: 1, name: 'Category A'},
-        {id: 2, name: 'Category B'},
-        {id: 3, name: 'Category C'}
-    ]
+    loadCategories() {
+        this.categoryService.loadCategories();
+        // .then(response => {
+        //     console.log(response);
+        // })
+        // .catch(error => console.error(error));
+    },
 
+    init() {
+        this._super();
+        this.loadCategories();
+    }
 });
