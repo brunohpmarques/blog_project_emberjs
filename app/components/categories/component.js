@@ -5,11 +5,11 @@ export default Ember.Component.extend({
     categories: [],
 
     loadCategories() {
-        this.categoryService.loadCategories();
-        // .then(response => {
-        //     console.log(response);
-        // })
-        // .catch(error => console.error(error));
+        this.categoryService.loadCategories()
+        .then(response => {
+            this.set('categories', response);
+        })
+        .catch(error => console.error(error));
     },
 
     init() {
