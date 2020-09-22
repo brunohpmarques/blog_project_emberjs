@@ -5,7 +5,7 @@ export default Ember.Component.extend({
     categories: [],
 
     loadCategories() {
-        this.categoryService.loadCategories()
+        this.categoryService.getList()
         .then(response => {
             this.set('categories', response);
         })

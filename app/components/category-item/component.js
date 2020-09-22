@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-
+    categoryService: Ember.inject.service(),
     category: null,
     isEdit: false,
     isInvalid: Ember.computed('category.name', function() {
@@ -20,12 +20,19 @@ export default Ember.Component.extend({
     },
     update(category) {
         if(!this.isInvalid){
-            console.log('update category', category);
-            this.toggleProperty('isEdit');
+            this.categoryService.update(category)
+            .then(() => {
+                this.toggleProperty('isEdit');
+            })
+            .catch(error => console.error(error));
         }
     },
-    remove(category) {
-        console.log('remove category', category);
+    delete(category) {
+        this.categoryService.delete(category)
+        .then(() => {
+            this.toggleProperty('isEdit');
+        })
+        .catch(error => console.error(error));
     },
 
     init() {

@@ -14,7 +14,7 @@
     <div class="col-2 text-right">
         {{#unless isEdit}}
             <button type="button" {{action toggleEdit}} class="btn btn-light btn-sm">✏️</button>
-            <button type="button" {{action remove category}} class="btn btn-light btn-sm">🗑️</button>
+            <button type="button" {{action delete category}} class="btn btn-light btn-sm">🗑️</button>
         {{/unless}}
 
         {{#if isEdit}}
