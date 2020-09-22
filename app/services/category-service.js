@@ -5,6 +5,9 @@ export default Ember.Service.extend({
     getList() {
         return this.get('ajax').request('/categories', {method: 'GET'});
     },
+    create(category) {
+        return this.get('ajax').request(`/categories`, {method: 'POST', data: category});
+    },
     update(category) {
         return this.get('ajax').request(`/categories/${category.id}`, {method: 'PUT', data: category});
     },

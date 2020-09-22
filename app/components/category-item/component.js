@@ -30,7 +30,7 @@ export default Ember.Component.extend({
     delete(category) {
         this.categoryService.delete(category)
         .then(() => {
-            this.toggleProperty('isEdit');
+            this.trigger('category-deleted', category);
         })
         .catch(error => console.error(error));
     },
