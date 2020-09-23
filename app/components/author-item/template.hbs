@@ -9,7 +9,9 @@
         {{author.email}}
     </div>
     <div class="col-2 text-right">
-        <button type="button" class="btn btn-light btn-sm">✏️</button>
+        {{#link-to "authors.edit" author.id}}
+            <button type="button" class="btn btn-light btn-sm">✏️</button>
+        {{/link-to}}
         <button type="button" {{action delete author}} class="btn btn-light btn-sm">🗑️</button>
     </div>
 </div>

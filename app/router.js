@@ -16,5 +16,6 @@ Router.map(function() {
   });
   this.route('authors', {path: '/authors'}, function() {
     this.route('new', {path: '/new'});
+    this.route('edit', {path: '/:authorId'});
   });
 });

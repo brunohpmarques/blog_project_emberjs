@@ -1,0 +1,53 @@
+<div class="row mb-3">
+    <div class="col-8">
+        <h1>Edit Author</h1>
+    </div>
+</div>
+
+{{#if showAlert}}
+    {{alert message="Author edited!" variant="success"}}
+{{/if}}
+
+{{#if isLoadingAuthor}}
+    <div class="row">
+        <div class="col-12 text-center">
+            {{loading}}
+        </div>
+    </div>
+{{/if}}
+
+{{#unless isLoadingAuthor}}
+    <div class="row py-1">
+        <div class="col-6">
+            <label>Name:</label>
+            {{input value=authorName class="form-control border" classBinding="isInvalidName:border-danger"}}
+        </div>
+    </div>
+    <div class="row py-1">
+        <div class="col-6">
+            <label>E-mail:</label>
+            {{input value=authorEmail type="email" class="form-control border" classBinding="isInvalidEmail:border-danger"}}
+        </div>
+    </div>
+    <div class="row py-1">
+        <div class="col-6">
+            <label>Password:</label>
+            {{input value=authorPassword type="password" class="form-control border" placeholder="Type the same password or change it" classBinding="isInvalidPassword:border-danger"}}
+        </div>
+    </div>
+
+    <div class="row py-1">
+        <div class="col-12">
+            {{#unless isLoading}}
+                <button type="button" {{action edit}} class="btn btn-success">Edit</button>
+            {{/unless}}
+
+            {{#if isLoading}}
+                <button type="button" disabled="disabled" class="btn btn-success">
+                    {{loading}}
+                    Editing
+                </button>
+            {{/if}}
+        </div>
+    </div>
+{{/unless}}

@@ -5,13 +5,16 @@ export default Ember.Service.extend({
     getList() {
         return this.get('ajax').request('/users', {method: 'GET'});
     },
-    create(authors) {
-        return this.get('ajax').request(`/users`, {method: 'POST', data: authors});
+    create(author) {
+        return this.get('ajax').request(`/users`, {method: 'POST', data: author});
     },
-    update(authors) {
-        return this.get('ajax').request(`/users/${authors.id}`, {method: 'PUT', data: authors});
+    detail(id) {
+        return this.get('ajax').request(`/users/${id}`, {method: 'GET'});
     },
-    delete(authors) {
-        return this.get('ajax').request(`/users/${authors.id}`, {method: 'DELETE'});
+    update(author) {
+        return this.get('ajax').request(`/users/${author.id}`, {method: 'PUT', data: author});
+    },
+    delete(author) {
+        return this.get('ajax').request(`/users/${author.id}`, {method: 'DELETE'});
     }
 });
