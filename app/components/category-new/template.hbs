@@ -17,6 +17,15 @@
 
 <div class="row py-1">
     <div class="col-12">
-        <button type="button" {{action create}} class="btn btn-success">Create</button>
+        {{#unless isLoading}}
+            <button type="button" {{action create}} class="btn btn-success">Create</button>
+        {{/unless}}
+
+        {{#if isLoading}}
+            <button type="button" disabled="disabled" class="btn btn-success">
+                {{loading}}
+                Creating
+            </button>
+        {{/if}}
     </div>
 </div>

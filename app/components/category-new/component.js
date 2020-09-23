@@ -4,14 +4,15 @@ export default Ember.Component.extend({
     categoryService: Ember.inject.service(),
     categoryName: null,
     showAlert: false,
+    isLoading: false,
     isInvalid: Ember.computed('categoryName', function() {
         const categoryName = this.get('categoryName');
         return !categoryName;
     }),
     create() {
         this.set('showAlert', false);
-
         if(!this.isInvalid){
+            this.set('isLoading', true);
             this.categoryService.create({
                 name: this.get('categoryName')
             })
@@ -20,7 +21,8 @@ export default Ember.Component.extend({
                 this.set('categoryName', null);
                 this.trigger('category-created', category);
             })
-            .catch(error => console.error(error));
+            .catch(error => console.error(error))
+            .finally(() => this.set('isLoading', false));
         }
     }
 });

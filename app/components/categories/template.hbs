@@ -9,6 +9,16 @@
     </div>
 </div>
 
-{{#each categories as |category|}}
-    {{category-item category=category}}
-{{/each}}
+{{#if isLoading}}
+    <div class="row">
+        <div class="col-12 text-center">
+            {{loading}}
+        </div>
+    </div>
+{{/if}}
+
+{{#unless isLoading}}
+    {{#each categories as |category|}}
+        {{category-item category=category}}
+    {{/each}}
+{{/unless}}
