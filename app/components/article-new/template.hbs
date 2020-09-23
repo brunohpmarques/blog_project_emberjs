@@ -1,0 +1,69 @@
+<div class="row mb-3">
+    <div class="col-8">
+        <h1>New Article</h1>
+    </div>
+</div>
+
+{{#if showAlert}}
+    {{alert message="Article created!" variant="success"}}
+{{/if}}
+
+<div class="row py-1">
+    <div class="col-6">
+        <label>Title:</label>
+        {{input value=articleTitle class="form-control border" classBinding="isInvalidTitle:border-danger"}}
+    </div>
+</div>
+
+<div class="row py-1">
+    <div class="col-6">
+        <label>Image URL:</label>
+        {{input value=articleImage type="email" class="form-control border" classBinding="isInvalidImage:border-danger"}}
+    </div>
+</div>
+
+<div class="row py-1">
+    <div class="col-6">
+        <label>Content:</label>
+        {{textarea value=articleContent class="form-control border" classBinding="isInvalidContent:border-danger"}}
+    </div>
+</div>
+
+<div class="row py-1">
+    <div class="col-6">
+        <label>Category:</label>
+        <select name="categories" class="form-control border"  onchange={{action onSelectCategory value="target.value"}}>      
+            <option disabled selected>Choose a category</option>
+            {{#each categories as |category index|}}        
+                <option value={{index}}>{{category.name}}</option>      
+            {{/each}}
+        </select>
+    </div>
+</div>
+
+<div class="row py-1">
+    <div class="col-6">
+        <label>Authors:</label>
+        <select name="authors" class="form-control border"  onchange={{action onSelectAuthor value="target.value"}}>      
+            <option disabled selected>Choose a author</option>
+            {{#each authors as |author index|}}        
+                <option value={{index}}>{{author.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+</div>
+
+<div class="row py-1">
+    <div class="col-12">
+        {{#unless isLoading}}
+            <button type="button" {{action create}} class="btn btn-success">Create</button>
+        {{/unless}}
+
+        {{#if isLoading}}
+            <button type="button" disabled="disabled" class="btn btn-success">
+                {{loading}}
+                Creating
+            </button>
+        {{/if}}
+    </div>
+</div>
