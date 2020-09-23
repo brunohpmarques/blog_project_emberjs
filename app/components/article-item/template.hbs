@@ -1,0 +1,10 @@
+{{#link-to "articles.detail" article.id}}
+  <div class="card bg-dark text-white">
+    <img src="{{article.image}}" class="card-img">
+    <div class="card-img-overlay">
+      <h5 class="card-title">{{article.title}}</h5>
+      <p class="card-text">{{abstract}}</p>
+      <p class="card-text">{{createdDate}}</p>
+    </div>
+  </div>
+{{/link-to}}
