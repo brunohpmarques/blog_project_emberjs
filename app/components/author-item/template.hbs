@@ -1,0 +1,15 @@
+<div class="row py-1">
+    <div class="col-1">
+        # {{author.id}}
+    </div>
+    <div class="col-5">
+        {{author.name}}
+    </div>
+    <div class="col-4">
+        {{author.email}}
+    </div>
+    <div class="col-2 text-right">
+        <button type="button" class="btn btn-light btn-sm">✏️</button>
+        <button type="button" {{action delete author}} class="btn btn-light btn-sm">🗑️</button>
+    </div>
+</div>

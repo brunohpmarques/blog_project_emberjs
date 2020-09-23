@@ -11,9 +11,19 @@
     <img  src="{{article.image}}" class="card-img-top">
     <div class="card-body">
       <h5 class="card-title">{{article.title}}</h5>
-      <p class="card-text">{{article.content}}</p>
+      <p class="card-text"><small class="text-muted">Author: {{article.author.name}}</small></p>
       <p class="card-text"><small class="text-muted">Created at: {{createdDate}}</small></p>
       <p class="card-text"><small class="text-muted">Updated at: {{updatedDate}}</small></p>
+
+      <p class="card-text">{{article.content}}</p>
+      <p class="card-text">
+        <span class="badge badge-primary">{{article.category.name}}</span>
+      </p>
+
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-light btn-sm">✏️</button>
+        <button type="button" class="btn btn-light btn-sm">🗑️</button>
+      </div>
     </div>
   </div>
 {{/unless}}
