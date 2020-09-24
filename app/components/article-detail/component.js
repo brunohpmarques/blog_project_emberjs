@@ -6,6 +6,7 @@ export default Ember.Component.extend(
     DateUtil,
     {
     articleService: Ember.inject.service(),
+    articleId: null,
     article: null,
     isLoading: true,
 
@@ -18,7 +19,7 @@ export default Ember.Component.extend(
 
     loadArticle() {
         this.set('isLoading', true);
-        this.articleService.detail(1)
+        this.articleService.detail(this.get('articleId'))
         .then(response => {
             this.set('isLoading', false);
             this.set('article', response);

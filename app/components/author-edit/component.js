@@ -32,10 +32,9 @@ export default Ember.Component.extend({
 
     loadAuthor() {
         this.set('isLoadingAuthor', true);
-        this.authorService.detail(1)
+        this.authorService.detail(this.get('authorId'))
         .then(response => {
             this.set('isLoadingAuthor', false);
-            this.set('authorId', response.id);
             this.set('authorName', response.name);
             this.set('authorEmail', response.email);
         })
